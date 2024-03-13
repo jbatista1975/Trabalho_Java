@@ -1,0 +1,36 @@
+Fazer toda estrutura do projeto em UML:
+onde precisar indetificar as classes.
+class Usuario {
+   - id: int
+    - nome: String
+    - email: String
+    - eventosConfirmados: List<Evento>
+    + cadastrar()
+    + consultarEventosCadastrados(): List<Evento>
+    + confirmarPresenca(evento: Evento)
+    + cancelarPresenca(evento: Evento)
+class Evento {
+    - id: int
+    - nome: String
+    - endereco: String
+    - categoria: Categoria
+    - horario: LocalDateTime
+    - descricao: String
+}
+
+enum Categoria {
+    FESTA, ESPORTIVO, SHOW
+}
+
+class Sistema {
+    - usuarios: List<Usuario>
+    - eventos: List<Evento>
+    + cadastrarUsuario(usuario: Usuario)
+    + cadastrarEvento(evento: Evento)
+    + consultarEventos(): List<Evento>
+    + ordenarEventosPorProximidade(): List<Evento>
+    + informarEventosOcorrendoAgora(): List<Evento>
+    + informarEventosPassados(): List<Evento>
+    + salvarEventosEmArquivo()
+    + carregarEventosDoArquivo()
+Em Evento java usou o  método toString, estamos retornando uma string formatada que inclui todos os atributos do evento. O método format da classe LocalDateTime é usado para converter o horário do evento em uma string no formato dd/MM/yyyy HH:mm.
